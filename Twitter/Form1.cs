@@ -135,6 +135,7 @@ namespace Twitter
             label6.Visible = false;
             label7.Visible = false;
             label8.Visible = false;
+            label11.Visible = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -360,6 +361,12 @@ namespace Twitter
             col.Text = "Follow";
             col.UseColumnTextForButtonValue = true;
             encontrados.Columns.Add(col);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            home.Visible = true;
+            log.Visible = false;
         }
     }
 }
