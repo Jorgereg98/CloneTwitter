@@ -1,0 +1,10 @@
+C:\Users\DELL\Desktop\Twitter\Twitter\bin\Debug\Twitter.exe.config
+C:\Users\DELL\Desktop\Twitter\Twitter\bin\Debug\Twitter.exe
+C:\Users\DELL\Desktop\Twitter\Twitter\bin\Debug\Twitter.pdb
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.Form1.resources
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.Properties.Resources.resources
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.exe
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.pdb
