@@ -26,6 +26,7 @@ namespace Twitter
         int siguiendo;
         int seguidores;
         bool b = false;
+        bool c = false;
 
         private readonly ISubject _sensores;
         private IObserver _display;
@@ -132,6 +133,56 @@ namespace Twitter
                 y == true &&
                 label8.ForeColor != Color.Crimson) b = true;
             else b = false;
+
+            return;
+        }
+
+        public void ValidateUpdate()
+        {
+            if (textBox12.Text == "") label23.Visible = true;
+            else label23.Visible = false;
+
+            if (textBox11.Text == "") label22.Visible = true;
+            else label22.Visible = false;
+
+            
+
+            if (textBox9.Text == "")
+            {
+                label20.Visible = true;
+                label20.Text = "* Campo obligatorio";
+                label20.ForeColor = Color.Crimson;
+            }
+
+            if (textBox12.Text != "" &&
+                textBox11.Text != "" &&
+                label20.ForeColor != Color.Crimson) c = true;
+            else c = false;
+
+            return;
+        }
+
+        public void CargarTweets()
+        {
+            following = _service.GetFollowing(logged_user.id);
+            List<Tweet> following_tweets = new List<Tweet>();
+            for (int i = 0; i < following.Count; i++)
+            {
+                List<Tweet> user_tweets = _service.GetUserTweets(following[i]);
+                for (int j = 0; j < user_tweets.Count; j++)
+                {
+                    following_tweets.Add(user_tweets[j]);
+                }
+            }
+
+            List<Tweet> actual = _service.GetUserTweets(logged_user.id);
+            for(int i = 0; i < actual.Count; i++)
+            {
+                following_tweets.Add(actual[i]);
+            }
+
+            following_tweets = following_tweets.OrderBy(t => t.date.Date).ToList();
+            tweetsGrid.DataSource = new BindingSource { DataSource = following_tweets };
 
             return;
         }
@@ -280,7 +331,8 @@ namespace Twitter
                     start.Visible = true;
                     log.Visible = false;
 
-                    tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
+                    //tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
+                    CargarTweets();
                 }
 
                 pinicio.Visible = true;
@@ -325,7 +377,7 @@ namespace Twitter
 
             textTweet.Text = "";
             //aparecen los del usuario faltan poner los de los seguidores
-            tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
+            CargarTweets();
 
 
         }
@@ -340,6 +392,10 @@ namespace Twitter
             pinicio.Visible = false;
             pperfil.Visible = false;
             pbuscar.Visible = false;
+            peditar.Visible = false;
+
+            encontrados.DataSource = new BindingSource { DataSource = null };
+            usuarioBuscar.Text = "";
         }
 
         private void bperfil_Click(object sender, EventArgs e)
@@ -347,6 +403,7 @@ namespace Twitter
             pinicio.Visible = false;
             pperfil.Visible = true;
             pbuscar.Visible = false;
+            peditar.Visible = false;
 
             nombre.Text = logged_user.name;
             apellido.Text = logged_user.lastName;
@@ -356,6 +413,9 @@ namespace Twitter
 
             label17.Text = siguiendo.ToString();
             label16.Text = seguidores.ToString();
+
+            encontrados.DataSource = new BindingSource { DataSource = null };
+            usuarioBuscar.Text = "";
         }
 
         private void binicio_Click(object sender, EventArgs e)
@@ -363,11 +423,13 @@ namespace Twitter
             pinicio.Visible = true;
             pperfil.Visible = false;
             pbuscar.Visible = false;
+            peditar.Visible = false;
 
-            following = _service.GetFollowing(logged_user.id);
+            CargarTweets();
 
-            //aparecen los del usuario faltan poner los de los seguidores
-            //tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
+
+            encontrados.DataSource = new BindingSource { DataSource = null };
+            usuarioBuscar.Text = "";
         }
 
         private void buscar_Click(object sender, EventArgs e)
@@ -375,6 +437,7 @@ namespace Twitter
             pinicio.Visible = false;
             pperfil.Visible = false;
             pbuscar.Visible = true;
+            peditar.Visible = false;
         }
 
         private void buscarusuario_Click(object sender, EventArgs e)
@@ -435,43 +498,136 @@ namespace Twitter
 
         private void Seguir_Click(object sender, EventArgs e)
         {
-            int rowindex = encontrados.CurrentCell.RowIndex;
-            var result = _service.AddFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
-
-            if (result == "Follower Add Successfully")
+            try
             {
-                MessageBox.Show("Ahora sigues a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
-            }
-            if (result == "Error Adding Follower")
-            {
-                MessageBox.Show("Ya seguias a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString()+ " anteriormente!");
-            }
+                int rowindex = encontrados.CurrentCell.RowIndex;
+                var result = _service.AddFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
 
-            following = _service.GetFollowing(logged_user.id);
-            siguiendo = following.Count;
-            followers = _service.GetFollowers(logged_user.id);
-            seguidores = followers.Count;
+                if (result == "Follower Add Successfully")
+                {
+                    MessageBox.Show("Ahora sigues a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+                }
+                if (result == "Error Adding Follower")
+                {
+                    MessageBox.Show("Ya seguias a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + " anteriormente!");
+                }
+
+                following = _service.GetFollowing(logged_user.id);
+                siguiendo = following.Count;
+                followers = _service.GetFollowers(logged_user.id);
+                seguidores = followers.Count;
+            }
+            catch
+            {
+
+            }
+            
 
         }
 
         private void DejarSeguir_Click(object sender, EventArgs e)
         {
-            int rowindex = encontrados.CurrentCell.RowIndex;
-            var result = _service.DeleteFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
-
-            if (result == "Follower Removed Successfully")
+            try
             {
-                MessageBox.Show("Dejaste de seguir a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
-            }
-            if (result == "Error Removing Follower")
-            {
-                MessageBox.Show("Aun no sigues a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
-            }
+                int rowindex = encontrados.CurrentCell.RowIndex;
 
-            following = _service.GetFollowing(logged_user.id);
-            siguiendo = following.Count;
-            followers = _service.GetFollowers(logged_user.id);
-            seguidores = followers.Count;
+                var result = _service.DeleteFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
+
+                if (result == "Follower Removed Successfully")
+                {
+                    MessageBox.Show("Dejaste de seguir a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+                }
+                if (result == "Error Removing Follower")
+                {
+                    MessageBox.Show("Aun no sigues a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+                }
+
+                following = _service.GetFollowing(logged_user.id);
+                siguiendo = following.Count;
+                followers = _service.GetFollowers(logged_user.id);
+                seguidores = followers.Count;
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            ValidateUpdate();
+
+            if (c)
+            {
+                var user = new User();
+
+
+                user.name = textBox12.Text;
+                user.lastName = textBox11.Text;
+                user.mail = logged_user.mail;
+                user.username = logged_user.username;
+                user.pasword = textBox9.Text;
+
+                var result = _service.UpdateUser(user.name, user.lastName, user.pasword);
+
+                if (result == "User Updated Successfully")
+                {
+                    MessageBox.Show("Datos actualizados correctamente!");
+                }
+                if (result == "Error Updating User")
+                {
+                    MessageBox.Show("No se actualizaron los datos.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Alguno de tus campos no es válido.");
+            }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            label20.Visible = true;
+            if (textBox9.Text.Any(char.IsDigit) && textBox9.Text.Any(char.IsLower) && textBox9.Text.Any(char.IsUpper) && textBox9.Text.Length >= 12)
+            {
+                password = PasswordFluentBuilder.Create(DifficultyEnum.Very_Strong)
+                   .Finish();
+                label20.ForeColor = Color.ForestGreen;
+                label20.Text = password.ToString();
+            }
+            else if (textBox9.Text.Any(char.IsDigit) && textBox9.Text.Any(char.IsLower) && textBox9.Text.Any(char.IsUpper) && textBox9.Text.Length < 12 && textBox9.Text.Length >= 7)
+            {
+                password = PasswordFluentBuilder.Create(DifficultyEnum.Strong)
+                   .Finish();
+                label20.ForeColor = Color.YellowGreen;
+                label20.Text = password.ToString();
+            }
+            else if (textBox9.Text.Any(char.IsDigit) && textBox9.Text.Any(char.IsLower) && textBox9.Text.Any(char.IsUpper) && textBox9.Text.Length < 7)
+            {
+                password = PasswordFluentBuilder.Create(DifficultyEnum.Regular)
+                   .Finish();
+                label20.ForeColor = Color.Gold;
+                label20.Text = password.ToString();
+            }
+            else
+            {
+                password = PasswordFluentBuilder.Create(DifficultyEnum.Weak)
+                   .Finish();
+                label20.ForeColor = Color.Crimson;
+                label20.Text = password.ToString();
+            }
+        }
+
+        private void editar_Click(object sender, EventArgs e)
+        {
+            peditar.Visible = true;
+        }
+
+        private void label20_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

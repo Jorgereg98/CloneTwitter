@@ -40,7 +40,10 @@ namespace Twitter.Design_patterns.Observer
 
         private void ComprobarTweet()
         {
-            if (num_caracteres <= MAX_CARACTERES)
+            if(num_caracteres == 0)
+            {
+
+            }else if (num_caracteres <= MAX_CARACTERES)
             {
                 color = "verde";
                 //b = true;

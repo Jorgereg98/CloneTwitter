@@ -64,6 +64,18 @@ namespace Twitter.DB
             }
         }
 
+        public string UpdateUser(string nombre, string apellidos, string contrasena)
+        {
+            try
+            {
+                return _userService.UpdateUser(nombre, apellidos,contrasena) ? "User Updated Successfully" : "Error Updating User";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
         public User GetUser(string mail,string username, string contrasena)
         {
             try

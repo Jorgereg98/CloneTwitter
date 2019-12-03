@@ -60,43 +60,55 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button6 = new System.Windows.Forms.Button();
             this.start = new System.Windows.Forms.Panel();
-            this.pbuscar = new System.Windows.Forms.Panel();
-            this.encontrados = new System.Windows.Forms.DataGridView();
-            this.buscarusuario = new System.Windows.Forms.Button();
-            this.usuarioBuscar = new System.Windows.Forms.TextBox();
+            this.peditar = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.buscar = new System.Windows.Forms.Button();
             this.binicio = new System.Windows.Forms.Button();
+            this.bperfil = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.pperfil = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.editar = new System.Windows.Forms.Button();
             this.username = new System.Windows.Forms.Label();
             this.apellido = new System.Windows.Forms.Label();
             this.nombre = new System.Windows.Forms.Label();
             this.mytweets = new System.Windows.Forms.DataGridView();
             this.pinicio = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.NoMonitorear = new System.Windows.Forms.Button();
             this.monitorear = new System.Windows.Forms.Button();
             this.tweetsGrid = new System.Windows.Forms.DataGridView();
             this.twittear = new System.Windows.Forms.Button();
             this.textTweet = new System.Windows.Forms.TextBox();
-            this.bperfil = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.Seguir = new System.Windows.Forms.Button();
+            this.pbuscar = new System.Windows.Forms.Panel();
             this.DejarSeguir = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.Seguir = new System.Windows.Forms.Button();
+            this.encontrados = new System.Windows.Forms.DataGridView();
+            this.buscarusuario = new System.Windows.Forms.Button();
+            this.usuarioBuscar = new System.Windows.Forms.TextBox();
             this.home.SuspendLayout();
             this.register.SuspendLayout();
             this.log.SuspendLayout();
             this.start.SuspendLayout();
-            this.pbuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.encontrados)).BeginInit();
+            this.peditar.SuspendLayout();
             this.pperfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mytweets)).BeginInit();
             this.pinicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tweetsGrid)).BeginInit();
+            this.pbuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.encontrados)).BeginInit();
             this.SuspendLayout();
             // 
             // home
@@ -474,67 +486,162 @@
             // start
             // 
             this.start.BackColor = System.Drawing.Color.White;
-            this.start.Controls.Add(this.pperfil);
+            this.start.Controls.Add(this.peditar);
             this.start.Controls.Add(this.buscar);
             this.start.Controls.Add(this.binicio);
-            this.start.Controls.Add(this.pinicio);
             this.start.Controls.Add(this.bperfil);
             this.start.Controls.Add(this.button8);
+            this.start.Controls.Add(this.pinicio);
             this.start.Controls.Add(this.pbuscar);
+            this.start.Controls.Add(this.pperfil);
             this.start.Location = new System.Drawing.Point(0, 0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(1300, 535);
             this.start.TabIndex = 5;
             this.start.Visible = false;
             // 
-            // pbuscar
+            // peditar
             // 
-            this.pbuscar.Controls.Add(this.DejarSeguir);
-            this.pbuscar.Controls.Add(this.Seguir);
-            this.pbuscar.Controls.Add(this.encontrados);
-            this.pbuscar.Controls.Add(this.buscarusuario);
-            this.pbuscar.Controls.Add(this.usuarioBuscar);
-            this.pbuscar.Location = new System.Drawing.Point(160, 10);
-            this.pbuscar.Name = "pbuscar";
-            this.pbuscar.Size = new System.Drawing.Size(639, 510);
-            this.pbuscar.TabIndex = 9;
-            this.pbuscar.Visible = false;
+            this.peditar.Controls.Add(this.button7);
+            this.peditar.Controls.Add(this.label20);
+            this.peditar.Controls.Add(this.label22);
+            this.peditar.Controls.Add(this.label23);
+            this.peditar.Controls.Add(this.textBox9);
+            this.peditar.Controls.Add(this.textBox11);
+            this.peditar.Controls.Add(this.textBox12);
+            this.peditar.Controls.Add(this.label24);
+            this.peditar.Controls.Add(this.label26);
+            this.peditar.Controls.Add(this.label27);
+            this.peditar.Location = new System.Drawing.Point(816, 13);
+            this.peditar.Name = "peditar";
+            this.peditar.Size = new System.Drawing.Size(404, 362);
+            this.peditar.TabIndex = 10;
+            this.peditar.Visible = false;
             // 
-            // encontrados
+            // button7
             // 
-            this.encontrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.encontrados.Location = new System.Drawing.Point(32, 105);
-            this.encontrados.Name = "encontrados";
-            this.encontrados.ReadOnly = true;
-            this.encontrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.encontrados.Size = new System.Drawing.Size(580, 337);
-            this.encontrados.TabIndex = 2;
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.button7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(253, 290);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(114, 46);
+            this.button7.TabIndex = 45;
+            this.button7.Text = "Actualizar";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
-            // buscarusuario
+            // label20
             // 
-            this.buscarusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.buscarusuario.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.buscarusuario.ForeColor = System.Drawing.Color.White;
-            this.buscarusuario.Location = new System.Drawing.Point(512, 13);
-            this.buscarusuario.Name = "buscarusuario";
-            this.buscarusuario.Size = new System.Drawing.Size(100, 46);
-            this.buscarusuario.TabIndex = 1;
-            this.buscarusuario.Text = "Buscar";
-            this.buscarusuario.UseVisualStyleBackColor = false;
-            this.buscarusuario.Click += new System.EventHandler(this.buscarusuario_Click);
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Crimson;
+            this.label20.Location = new System.Drawing.Point(27, 263);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(127, 16);
+            this.label20.TabIndex = 41;
+            this.label20.Text = "* Campo obligatorio";
+            this.label20.Visible = false;
+            this.label20.TextChanged += new System.EventHandler(this.label20_TextChanged);
             // 
-            // usuarioBuscar
+            // label22
             // 
-            this.usuarioBuscar.Location = new System.Drawing.Point(32, 38);
-            this.usuarioBuscar.Name = "usuarioBuscar";
-            this.usuarioBuscar.Size = new System.Drawing.Size(474, 20);
-            this.usuarioBuscar.TabIndex = 0;
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Crimson;
+            this.label22.Location = new System.Drawing.Point(26, 185);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(127, 16);
+            this.label22.TabIndex = 39;
+            this.label22.Text = "* Campo obligatorio";
+            this.label22.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Crimson;
+            this.label23.Location = new System.Drawing.Point(26, 109);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(127, 16);
+            this.label23.TabIndex = 38;
+            this.label23.Text = "* Campo obligatorio";
+            this.label23.Visible = false;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(30, 237);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(337, 20);
+            this.textBox9.TabIndex = 37;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(29, 159);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(337, 20);
+            this.textBox11.TabIndex = 35;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(30, 83);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(337, 20);
+            this.textBox12.TabIndex = 34;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label24.Location = new System.Drawing.Point(26, 213);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 21);
+            this.label24.TabIndex = 33;
+            this.label24.Text = "Contraseña";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label26.Location = new System.Drawing.Point(25, 135);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(92, 21);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "Apellidos";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.Transparent;
+            this.label27.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.label27.Location = new System.Drawing.Point(26, 59);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(80, 21);
+            this.label27.TabIndex = 30;
+            this.label27.Text = "Nombre";
             // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(36, 133);
+            this.buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buscar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buscar.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscar.Location = new System.Drawing.Point(36, 117);
             this.buscar.Name = "buscar";
-            this.buscar.Size = new System.Drawing.Size(90, 23);
+            this.buscar.Size = new System.Drawing.Size(90, 30);
             this.buscar.TabIndex = 8;
             this.buscar.Text = "Buscar";
             this.buscar.UseVisualStyleBackColor = true;
@@ -542,13 +649,57 @@
             // 
             // binicio
             // 
+            this.binicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.binicio.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.binicio.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.binicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.binicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.binicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.binicio.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.binicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.binicio.Location = new System.Drawing.Point(36, 45);
             this.binicio.Name = "binicio";
-            this.binicio.Size = new System.Drawing.Size(90, 23);
+            this.binicio.Size = new System.Drawing.Size(90, 30);
             this.binicio.TabIndex = 7;
             this.binicio.Text = "Inicio";
             this.binicio.UseVisualStyleBackColor = true;
             this.binicio.Click += new System.EventHandler(this.binicio_Click);
+            // 
+            // bperfil
+            // 
+            this.bperfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bperfil.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bperfil.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.bperfil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.bperfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.bperfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bperfil.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bperfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bperfil.Location = new System.Drawing.Point(36, 81);
+            this.bperfil.Name = "bperfil";
+            this.bperfil.Size = new System.Drawing.Size(90, 30);
+            this.bperfil.TabIndex = 4;
+            this.bperfil.Text = "Perfil";
+            this.bperfil.UseVisualStyleBackColor = true;
+            this.bperfil.Click += new System.EventHandler(this.bperfil_Click);
+            // 
+            // button8
+            // 
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(12, 153);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(142, 30);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "Cerrar sesión";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // pperfil
             // 
@@ -567,6 +718,46 @@
             this.pperfil.TabIndex = 6;
             this.pperfil.Visible = false;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(371, 46);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(16, 20);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "#";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(371, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(16, 20);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "#";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(393, 69);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 16);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Seguidores";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(393, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 16);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Siguiendo";
+            // 
             // editar
             // 
             this.editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
@@ -578,6 +769,7 @@
             this.editar.TabIndex = 4;
             this.editar.Text = "Editar perfil";
             this.editar.UseVisualStyleBackColor = false;
+            this.editar.Click += new System.EventHandler(this.editar_Click);
             // 
             // username
             // 
@@ -632,6 +824,16 @@
             this.pinicio.Size = new System.Drawing.Size(639, 510);
             this.pinicio.TabIndex = 5;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(28, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 22);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Inicio";
+            // 
             // NoMonitorear
             // 
             this.NoMonitorear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
@@ -662,7 +864,7 @@
             this.tweetsGrid.Location = new System.Drawing.Point(32, 105);
             this.tweetsGrid.Name = "tweetsGrid";
             this.tweetsGrid.ReadOnly = true;
-            this.tweetsGrid.Size = new System.Drawing.Size(580, 387);
+            this.tweetsGrid.Size = new System.Drawing.Size(445, 387);
             this.tweetsGrid.TabIndex = 3;
             // 
             // twittear
@@ -686,38 +888,18 @@
             this.textTweet.TabIndex = 1;
             this.textTweet.TextChanged += new System.EventHandler(this.textTweet_TextChanged);
             // 
-            // bperfil
+            // pbuscar
             // 
-            this.bperfil.Location = new System.Drawing.Point(36, 74);
-            this.bperfil.Name = "bperfil";
-            this.bperfil.Size = new System.Drawing.Size(90, 23);
-            this.bperfil.TabIndex = 4;
-            this.bperfil.Text = "Perfil";
-            this.bperfil.UseVisualStyleBackColor = true;
-            this.bperfil.Click += new System.EventHandler(this.bperfil_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(36, 104);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(90, 23);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Cerrar sesión";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // Seguir
-            // 
-            this.Seguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
-            this.Seguir.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Seguir.ForeColor = System.Drawing.Color.White;
-            this.Seguir.Location = new System.Drawing.Point(423, 457);
-            this.Seguir.Name = "Seguir";
-            this.Seguir.Size = new System.Drawing.Size(75, 23);
-            this.Seguir.TabIndex = 3;
-            this.Seguir.Text = "Seguir";
-            this.Seguir.UseVisualStyleBackColor = false;
-            this.Seguir.Click += new System.EventHandler(this.Seguir_Click);
+            this.pbuscar.Controls.Add(this.DejarSeguir);
+            this.pbuscar.Controls.Add(this.Seguir);
+            this.pbuscar.Controls.Add(this.encontrados);
+            this.pbuscar.Controls.Add(this.buscarusuario);
+            this.pbuscar.Controls.Add(this.usuarioBuscar);
+            this.pbuscar.Location = new System.Drawing.Point(160, 10);
+            this.pbuscar.Name = "pbuscar";
+            this.pbuscar.Size = new System.Drawing.Size(639, 510);
+            this.pbuscar.TabIndex = 9;
+            this.pbuscar.Visible = false;
             // 
             // DejarSeguir
             // 
@@ -732,55 +914,48 @@
             this.DejarSeguir.UseVisualStyleBackColor = false;
             this.DejarSeguir.Click += new System.EventHandler(this.DejarSeguir_Click);
             // 
-            // label13
+            // Seguir
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(28, 13);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 22);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Inicio";
+            this.Seguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.Seguir.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seguir.ForeColor = System.Drawing.Color.White;
+            this.Seguir.Location = new System.Drawing.Point(423, 457);
+            this.Seguir.Name = "Seguir";
+            this.Seguir.Size = new System.Drawing.Size(75, 23);
+            this.Seguir.TabIndex = 3;
+            this.Seguir.Text = "Seguir";
+            this.Seguir.UseVisualStyleBackColor = false;
+            this.Seguir.Click += new System.EventHandler(this.Seguir_Click);
             // 
-            // label14
+            // encontrados
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(393, 50);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 16);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Siguiendo";
+            this.encontrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.encontrados.Location = new System.Drawing.Point(32, 105);
+            this.encontrados.Name = "encontrados";
+            this.encontrados.ReadOnly = true;
+            this.encontrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.encontrados.Size = new System.Drawing.Size(580, 337);
+            this.encontrados.TabIndex = 2;
             // 
-            // label15
+            // buscarusuario
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(393, 69);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(73, 16);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Seguidores";
+            this.buscarusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.buscarusuario.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.buscarusuario.ForeColor = System.Drawing.Color.White;
+            this.buscarusuario.Location = new System.Drawing.Point(512, 13);
+            this.buscarusuario.Name = "buscarusuario";
+            this.buscarusuario.Size = new System.Drawing.Size(100, 46);
+            this.buscarusuario.TabIndex = 1;
+            this.buscarusuario.Text = "Buscar";
+            this.buscarusuario.UseVisualStyleBackColor = false;
+            this.buscarusuario.Click += new System.EventHandler(this.buscarusuario_Click);
             // 
-            // label16
+            // usuarioBuscar
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(371, 66);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(16, 20);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "#";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(371, 46);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 20);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "#";
+            this.usuarioBuscar.Location = new System.Drawing.Point(32, 38);
+            this.usuarioBuscar.Name = "usuarioBuscar";
+            this.usuarioBuscar.Size = new System.Drawing.Size(474, 20);
+            this.usuarioBuscar.TabIndex = 0;
             // 
             // Form1
             // 
@@ -799,15 +974,17 @@
             this.log.ResumeLayout(false);
             this.log.PerformLayout();
             this.start.ResumeLayout(false);
-            this.pbuscar.ResumeLayout(false);
-            this.pbuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.encontrados)).EndInit();
+            this.peditar.ResumeLayout(false);
+            this.peditar.PerformLayout();
             this.pperfil.ResumeLayout(false);
             this.pperfil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mytweets)).EndInit();
             this.pinicio.ResumeLayout(false);
             this.pinicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tweetsGrid)).EndInit();
+            this.pbuscar.ResumeLayout(false);
+            this.pbuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.encontrados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -872,6 +1049,17 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel peditar;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
     }
 }
 
