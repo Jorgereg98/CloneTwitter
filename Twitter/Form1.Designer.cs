@@ -52,6 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.log = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -72,12 +73,14 @@
             this.nombre = new System.Windows.Forms.Label();
             this.mytweets = new System.Windows.Forms.DataGridView();
             this.pinicio = new System.Windows.Forms.Panel();
+            this.NoMonitorear = new System.Windows.Forms.Button();
+            this.monitorear = new System.Windows.Forms.Button();
             this.tweetsGrid = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.twittear = new System.Windows.Forms.Button();
+            this.textTweet = new System.Windows.Forms.TextBox();
             this.bperfil = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.Seguir = new System.Windows.Forms.Button();
             this.home.SuspendLayout();
             this.register.SuspendLayout();
             this.log.SuspendLayout();
@@ -384,6 +387,21 @@
             this.log.TabIndex = 4;
             this.log.Visible = false;
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.Transparent;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(239, 2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(78, 28);
+            this.button9.TabIndex = 6;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -456,29 +474,31 @@
             this.start.Controls.Add(this.pinicio);
             this.start.Controls.Add(this.bperfil);
             this.start.Controls.Add(this.button8);
-            this.start.Location = new System.Drawing.Point(29, 71);
+            this.start.Location = new System.Drawing.Point(152, 51);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(606, 560);
+            this.start.Size = new System.Drawing.Size(1128, 481);
             this.start.TabIndex = 5;
             this.start.Visible = false;
             // 
             // pbuscar
             // 
+            this.pbuscar.Controls.Add(this.Seguir);
             this.pbuscar.Controls.Add(this.encontrados);
             this.pbuscar.Controls.Add(this.buscarusuario);
             this.pbuscar.Controls.Add(this.usuarioBuscar);
-            this.pbuscar.Location = new System.Drawing.Point(42, 205);
+            this.pbuscar.Location = new System.Drawing.Point(629, 14);
             this.pbuscar.Name = "pbuscar";
-            this.pbuscar.Size = new System.Drawing.Size(402, 179);
+            this.pbuscar.Size = new System.Drawing.Size(496, 179);
             this.pbuscar.TabIndex = 9;
             this.pbuscar.Visible = false;
             // 
             // encontrados
             // 
             this.encontrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.encontrados.Location = new System.Drawing.Point(49, 49);
+            this.encontrados.Location = new System.Drawing.Point(3, 50);
             this.encontrados.Name = "encontrados";
-            this.encontrados.Size = new System.Drawing.Size(318, 110);
+            this.encontrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.encontrados.Size = new System.Drawing.Size(490, 110);
             this.encontrados.TabIndex = 2;
             // 
             // buscarusuario
@@ -525,9 +545,9 @@
             this.pperfil.Controls.Add(this.apellido);
             this.pperfil.Controls.Add(this.nombre);
             this.pperfil.Controls.Add(this.mytweets);
-            this.pperfil.Location = new System.Drawing.Point(52, 254);
+            this.pperfil.Location = new System.Drawing.Point(124, 214);
             this.pperfil.Name = "pperfil";
-            this.pperfil.Size = new System.Drawing.Size(516, 261);
+            this.pperfil.Size = new System.Drawing.Size(691, 261);
             this.pperfil.TabIndex = 6;
             this.pperfil.Visible = false;
             // 
@@ -573,44 +593,67 @@
             this.mytweets.Location = new System.Drawing.Point(40, 90);
             this.mytweets.Name = "mytweets";
             this.mytweets.ReadOnly = true;
-            this.mytweets.Size = new System.Drawing.Size(437, 150);
+            this.mytweets.Size = new System.Drawing.Size(548, 150);
             this.mytweets.TabIndex = 0;
             // 
             // pinicio
             // 
+            this.pinicio.Controls.Add(this.NoMonitorear);
+            this.pinicio.Controls.Add(this.monitorear);
             this.pinicio.Controls.Add(this.tweetsGrid);
-            this.pinicio.Controls.Add(this.button7);
-            this.pinicio.Controls.Add(this.textBox7);
-            this.pinicio.Location = new System.Drawing.Point(103, 34);
+            this.pinicio.Controls.Add(this.twittear);
+            this.pinicio.Controls.Add(this.textTweet);
+            this.pinicio.Location = new System.Drawing.Point(124, 10);
             this.pinicio.Name = "pinicio";
             this.pinicio.Size = new System.Drawing.Size(488, 188);
             this.pinicio.TabIndex = 5;
             // 
+            // NoMonitorear
+            // 
+            this.NoMonitorear.Location = new System.Drawing.Point(109, 33);
+            this.NoMonitorear.Name = "NoMonitorear";
+            this.NoMonitorear.Size = new System.Drawing.Size(86, 23);
+            this.NoMonitorear.TabIndex = 5;
+            this.NoMonitorear.Text = "No Monitorear";
+            this.NoMonitorear.UseVisualStyleBackColor = true;
+            this.NoMonitorear.Click += new System.EventHandler(this.NoMonitorear_Click);
+            // 
+            // monitorear
+            // 
+            this.monitorear.Location = new System.Drawing.Point(32, 33);
+            this.monitorear.Name = "monitorear";
+            this.monitorear.Size = new System.Drawing.Size(75, 23);
+            this.monitorear.TabIndex = 4;
+            this.monitorear.Text = "Monitorear";
+            this.monitorear.UseVisualStyleBackColor = true;
+            this.monitorear.Click += new System.EventHandler(this.monitorear_Click);
+            // 
             // tweetsGrid
             // 
             this.tweetsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tweetsGrid.Location = new System.Drawing.Point(42, 44);
+            this.tweetsGrid.Location = new System.Drawing.Point(32, 66);
             this.tweetsGrid.Name = "tweetsGrid";
             this.tweetsGrid.ReadOnly = true;
             this.tweetsGrid.Size = new System.Drawing.Size(437, 110);
             this.tweetsGrid.TabIndex = 3;
             // 
-            // button7
+            // twittear
             // 
-            this.button7.Location = new System.Drawing.Point(305, 7);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "Twittear";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.twittear.Location = new System.Drawing.Point(305, 8);
+            this.twittear.Name = "twittear";
+            this.twittear.Size = new System.Drawing.Size(75, 23);
+            this.twittear.TabIndex = 0;
+            this.twittear.Text = "Twittear";
+            this.twittear.UseVisualStyleBackColor = true;
+            this.twittear.Click += new System.EventHandler(this.button7_Click);
             // 
-            // textBox7
+            // textTweet
             // 
-            this.textBox7.Location = new System.Drawing.Point(32, 10);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(267, 20);
-            this.textBox7.TabIndex = 1;
+            this.textTweet.Location = new System.Drawing.Point(32, 10);
+            this.textTweet.Name = "textTweet";
+            this.textTweet.Size = new System.Drawing.Size(267, 20);
+            this.textTweet.TabIndex = 1;
+            this.textTweet.TextChanged += new System.EventHandler(this.textTweet_TextChanged);
             // 
             // bperfil
             // 
@@ -632,30 +675,25 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // Seguir
             // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(239, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(78, 28);
-            this.button9.TabIndex = 6;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.Seguir.Location = new System.Drawing.Point(391, 20);
+            this.Seguir.Name = "Seguir";
+            this.Seguir.Size = new System.Drawing.Size(75, 23);
+            this.Seguir.TabIndex = 3;
+            this.Seguir.Text = "Seguir";
+            this.Seguir.UseVisualStyleBackColor = true;
+            this.Seguir.Click += new System.EventHandler(this.Seguir_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 538);
-            this.Controls.Add(this.register);
+            this.ClientSize = new System.Drawing.Size(1303, 655);
             this.Controls.Add(this.start);
             this.Controls.Add(this.log);
             this.Controls.Add(this.home);
+            this.Controls.Add(this.register);
             this.Name = "Form1";
             this.Text = "Form1";
             this.home.ResumeLayout(false);
@@ -706,8 +744,8 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel start;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button twittear;
+        private System.Windows.Forms.TextBox textTweet;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView tweetsGrid;
         private System.Windows.Forms.Label label11;
@@ -728,6 +766,9 @@
         private System.Windows.Forms.Button buscarusuario;
         private System.Windows.Forms.TextBox usuarioBuscar;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button NoMonitorear;
+        private System.Windows.Forms.Button monitorear;
+        private System.Windows.Forms.Button Seguir;
     }
 }
 

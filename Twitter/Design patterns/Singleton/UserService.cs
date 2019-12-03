@@ -40,6 +40,18 @@ namespace Twitter.DB
             }
         }
 
+        public string AddFollower(int idfollower, int idfollowing)
+        {
+            try
+            {
+                return _userService.AddFollower(idfollower,idfollowing) ? "Follower Add Successfully" : "Error Adding Follower";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
         public User GetUser(string mail,string username, string contrasena)
         {
             try

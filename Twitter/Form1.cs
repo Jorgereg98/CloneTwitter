@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Twitter.Builder;
 using Twitter.DB;
+using Twitter.Design_patterns.Observer;
 using Twitter.Models;
 using Twitter.Strategy;
 
@@ -20,10 +21,10 @@ namespace Twitter
         private static UserService _service;
         Password password = new Password();
         User logged_user;
-        string logged_mail;
-        string logged_username;
-        string logged_contrasena;
         bool b = false;
+
+        private readonly ISubject _sensores;
+        private IObserver _display;
 
         public Form1()
         {
@@ -31,7 +32,12 @@ namespace Twitter
             var connectionString = ConfigurationManager.ConnectionStrings["SQLConnection"].ToString();
             _service = new UserService(connectionString);
 
-            
+            _sensores = new MedidorCaracteres(textTweet.Text.Length);
+            _display = new ObserverAlerta(_sensores);
+            monitorear.Enabled = false;
+
+
+
         }
 
         public void Validate()
@@ -225,7 +231,11 @@ namespace Twitter
 
         private void button6_Click(object sender, EventArgs e)
         {
+
+
             var result = _service.Exist(textBox5.Text, textBox5.Text);
+
+            
 
             if (result == "No existe")
             {
@@ -255,9 +265,6 @@ namespace Twitter
                 if (result == "Correcto")
                 {
                     logged_user = _service.GetUser(textBox5.Text, textBox5.Text, textBox6.Text);
-                    //logged_mail = logged_user.mail;
-                    //logged_username = logged_user.username;
-                    //logged_contrasena = logged_user.pasword;
 
                     textBox5.Text = "";
                     textBox6.Text = "";
@@ -269,6 +276,11 @@ namespace Twitter
                 }
 
                 pinicio.Visible = true;
+
+                
+
+
+
 
             }
             
@@ -287,7 +299,7 @@ namespace Twitter
         {
 
             var tweet = new Tweet();
-            tweet.text = textBox7.Text;
+            tweet.text = textTweet.Text;
             tweet.date = DateTime.Now;
             tweet.likes = 0;
             tweet.idUser = logged_user.id;
@@ -303,7 +315,7 @@ namespace Twitter
                 MessageBox.Show("Error Adding Tweet");
             }
 
-            textBox7.Text = "";
+            textTweet.Text = "";
             //aparecen los del usuario faltan poner los de los seguidores
             tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
 
@@ -355,18 +367,73 @@ namespace Twitter
         private void buscarusuario_Click(object sender, EventArgs e)
         {
             encontrados.DataSource = new BindingSource { DataSource = _service.Search(logged_user.id, usuarioBuscar.Text)};
-            DataGridViewButtonColumn col = new DataGridViewButtonColumn();
-            col.HeaderText = "Follow";
-            col.Name = "follow_user";
-            col.Text = "Follow";
-            col.UseColumnTextForButtonValue = true;
-            encontrados.Columns.Add(col);
+            //DataGridViewButtonColumn col = new DataGridViewButtonColumn();
+            //col.HeaderText = "Follow";
+            //col.Name = "follow_user";
+            //col.Text = "Follow";
+            //col.UseColumnTextForButtonValue = true;
+            //encontrados.Columns.Add(col);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             home.Visible = true;
             log.Visible = false;
+        }
+
+        private void textTweet_TextChanged(object sender, EventArgs e)
+        {
+            ((MedidorCaracteres)_sensores).NumeroCaracteres = textTweet.Text.Length;
+
+            if (ObserverAlerta.color == "rojo")
+            {
+                twittear.Enabled = false;
+            }
+            else if (ObserverAlerta.color == "verde")
+            {
+                twittear.Enabled = true;
+
+                //if (textTweet.Text.Length > 280)
+                //{
+                //    twittear.Enabled = false;
+                //}
+                //else
+                //{
+                //    twittear.Enabled = true;
+                //}
+            }
+            
+            
+        }
+
+        private void NoMonitorear_Click(object sender, EventArgs e)
+        {
+            _sensores.EliminarObserver(_display);
+            monitorear.Enabled = true;
+            NoMonitorear.Enabled = false;
+        }
+
+        private void monitorear_Click(object sender, EventArgs e)
+        {
+            _display = new ObserverAlerta(_sensores);
+            monitorear.Enabled = false;
+            NoMonitorear.Enabled = true;
+        }
+
+        private void Seguir_Click(object sender, EventArgs e)
+        {
+            int rowindex = encontrados.CurrentCell.RowIndex;
+            var result = _service.AddFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
+
+            if (result == "Follower Add Successfully")
+            {
+                MessageBox.Show("Ahora sigues a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+            }
+            if (result == "Error Adding Follower")
+            {
+                MessageBox.Show("Ya seguias a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString()+ "anteriormente!");
+            }
+
         }
     }
 }

@@ -8,6 +8,7 @@ iduser int primary key identity(1,1),
 nombre nvarchar(50),
 apellidos nvarchar(50),
 mail nvarchar(50),
+username nvarchar(50),
 contrasena nvarchar(50));
 go
 
@@ -19,12 +20,14 @@ likes int,
 idUser int);
 go
 
+
 create procedure adduser
 (
 	@nombre nvarchar(50),
 	@apellidos nvarchar(50),
 	@mail nvarchar(50),
 	@contrasena nvarchar(50),
+	@username nvarchar(50),
 	@haserror bit out
 )
 as
@@ -32,7 +35,7 @@ begin try
 	set @haserror = 0;
 	insert into users
 	values
-	(@nombre,@apellidos,@mail,@contrasena)
+	(@nombre,@apellidos,@mail,@username,@contrasena)
 end try
 begin catch
 	set @haserror = 1;
@@ -59,7 +62,27 @@ begin catch
 end catch
 go
 
+
 create procedure exist
+(
+	@username nvarchar(50),
+	@mail nvarchar(50),
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from users where mail = @mail or username = @username)
+begin
+	set @haserror = 0
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
+create procedure existmail
 (
 	@mail nvarchar(50),
 	@haserror bit out
@@ -77,16 +100,15 @@ begin catch
 end catch
 go
 
-create procedure verify
+create procedure existusername
 (
-	@mail nvarchar(50),
-	@contrasena nvarchar(50),
+	@username nvarchar(50),
 	@haserror bit out
 )
 as
 set @haserror = 1
 begin try
-if exists(select top 1 1 from users where mail = @mail and contrasena = @contrasena)
+if exists(select top 1 1 from users where username = @username)
 begin
 	set @haserror = 0
 end
@@ -95,27 +117,49 @@ begin catch
 	set @haserror = 1;
 end catch
 go
+
+
+create procedure verify
+(
+	@mail nvarchar(50),
+	@username nvarchar(50),
+	@contrasena nvarchar(50),
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from users where mail = @mail or username = @username and contrasena = @contrasena)
+begin
+	set @haserror = 0
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
 
 create procedure getuser
 (
 	@mail nvarchar(50),
+	@username nvarchar(50),
 	@contrasena nvarchar(50),
 	@haserror bit out
 )
 as
 set @haserror = 1
 begin try
-if exists(select top 1 1 from users where mail = @mail and contrasena = @contrasena)
+if exists(select top 1 1 from users where mail = @mail or username = @username and contrasena = @contrasena)
 begin
 	set @haserror = 0
-	select * from users where mail = @mail and contrasena = @contrasena
+	select * from users where mail = @mail or username = @username and contrasena = @contrasena
 end
 end try
 begin catch
 	set @haserror = 1;
 end catch
 go
-
 
 create procedure getusertweets
 (
@@ -137,5 +181,30 @@ end catch
 go
 
 
+
+create procedure search
+(
+	@iduser int,
+	@nombre nvarchar(50),
+	@haserror bit out
+)
+as
+set @haserror = 1
+begin try
+if exists(select top 1 1 from users where nombre = @nombre or apellidos = @nombre or username = @nombre )
+begin
+	set @haserror = 0
+	select * from users where (nombre = @nombre or apellidos = @nombre or username = @nombre) and not iduser = @iduser
+end
+end try
+begin catch
+	set @haserror = 1;
+end catch
+go
+
+
+go
+use twitterDB
+go
 select * from users
 select * from tweet
