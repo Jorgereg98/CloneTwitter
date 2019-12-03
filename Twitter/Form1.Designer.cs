@@ -81,6 +81,12 @@
             this.bperfil = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.Seguir = new System.Windows.Forms.Button();
+            this.DejarSeguir = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.home.SuspendLayout();
             this.register.SuspendLayout();
             this.log.SuspendLayout();
@@ -99,7 +105,7 @@
             this.home.Controls.Add(this.button3);
             this.home.Controls.Add(this.button2);
             this.home.Controls.Add(this.button1);
-            this.home.Location = new System.Drawing.Point(50, 0);
+            this.home.Location = new System.Drawing.Point(0, 0);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(1300, 535);
             this.home.TabIndex = 0;
@@ -171,7 +177,7 @@
             this.register.Controls.Add(this.label3);
             this.register.Controls.Add(this.label2);
             this.register.Controls.Add(this.label1);
-            this.register.Location = new System.Drawing.Point(12, 0);
+            this.register.Location = new System.Drawing.Point(0, 0);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(1300, 535);
             this.register.TabIndex = 3;
@@ -201,11 +207,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label12.Location = new System.Drawing.Point(391, 328);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(173, 24);
+            this.label12.Size = new System.Drawing.Size(177, 21);
             this.label12.TabIndex = 27;
             this.label12.Text = "Nombre de usuario";
             // 
@@ -326,11 +332,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label4.Location = new System.Drawing.Point(390, 405);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 24);
+            this.label4.Size = new System.Drawing.Size(110, 21);
             this.label4.TabIndex = 16;
             this.label4.Text = "Contraseña";
             // 
@@ -338,11 +344,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label3.Location = new System.Drawing.Point(391, 252);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 24);
+            this.label3.Size = new System.Drawing.Size(70, 21);
             this.label3.TabIndex = 15;
             this.label3.Text = "Correo";
             // 
@@ -350,11 +356,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label2.Location = new System.Drawing.Point(390, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 24);
+            this.label2.Size = new System.Drawing.Size(92, 21);
             this.label2.TabIndex = 14;
             this.label2.Text = "Apellidos";
             // 
@@ -362,11 +368,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.label1.Location = new System.Drawing.Point(391, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 24);
+            this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nombre";
             // 
@@ -381,7 +387,7 @@
             this.log.Controls.Add(this.linkLabel1);
             this.log.Controls.Add(this.button6);
             this.log.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.log.Location = new System.Drawing.Point(40, 0);
+            this.log.Location = new System.Drawing.Point(0, 0);
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(1300, 535);
             this.log.TabIndex = 4;
@@ -467,60 +473,66 @@
             // 
             // start
             // 
-            this.start.Controls.Add(this.pbuscar);
+            this.start.BackColor = System.Drawing.Color.White;
+            this.start.Controls.Add(this.pperfil);
             this.start.Controls.Add(this.buscar);
             this.start.Controls.Add(this.binicio);
-            this.start.Controls.Add(this.pperfil);
             this.start.Controls.Add(this.pinicio);
             this.start.Controls.Add(this.bperfil);
             this.start.Controls.Add(this.button8);
-            this.start.Location = new System.Drawing.Point(152, 51);
+            this.start.Controls.Add(this.pbuscar);
+            this.start.Location = new System.Drawing.Point(0, 0);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(1128, 481);
+            this.start.Size = new System.Drawing.Size(1300, 535);
             this.start.TabIndex = 5;
             this.start.Visible = false;
             // 
             // pbuscar
             // 
+            this.pbuscar.Controls.Add(this.DejarSeguir);
             this.pbuscar.Controls.Add(this.Seguir);
             this.pbuscar.Controls.Add(this.encontrados);
             this.pbuscar.Controls.Add(this.buscarusuario);
             this.pbuscar.Controls.Add(this.usuarioBuscar);
-            this.pbuscar.Location = new System.Drawing.Point(629, 14);
+            this.pbuscar.Location = new System.Drawing.Point(160, 10);
             this.pbuscar.Name = "pbuscar";
-            this.pbuscar.Size = new System.Drawing.Size(496, 179);
+            this.pbuscar.Size = new System.Drawing.Size(639, 510);
             this.pbuscar.TabIndex = 9;
             this.pbuscar.Visible = false;
             // 
             // encontrados
             // 
             this.encontrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.encontrados.Location = new System.Drawing.Point(3, 50);
+            this.encontrados.Location = new System.Drawing.Point(32, 105);
             this.encontrados.Name = "encontrados";
+            this.encontrados.ReadOnly = true;
             this.encontrados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.encontrados.Size = new System.Drawing.Size(490, 110);
+            this.encontrados.Size = new System.Drawing.Size(580, 337);
             this.encontrados.TabIndex = 2;
             // 
             // buscarusuario
             // 
-            this.buscarusuario.Location = new System.Drawing.Point(292, 19);
+            this.buscarusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.buscarusuario.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.buscarusuario.ForeColor = System.Drawing.Color.White;
+            this.buscarusuario.Location = new System.Drawing.Point(512, 13);
             this.buscarusuario.Name = "buscarusuario";
-            this.buscarusuario.Size = new System.Drawing.Size(75, 23);
+            this.buscarusuario.Size = new System.Drawing.Size(100, 46);
             this.buscarusuario.TabIndex = 1;
             this.buscarusuario.Text = "Buscar";
-            this.buscarusuario.UseVisualStyleBackColor = true;
+            this.buscarusuario.UseVisualStyleBackColor = false;
             this.buscarusuario.Click += new System.EventHandler(this.buscarusuario_Click);
             // 
             // usuarioBuscar
             // 
-            this.usuarioBuscar.Location = new System.Drawing.Point(49, 17);
+            this.usuarioBuscar.Location = new System.Drawing.Point(32, 38);
             this.usuarioBuscar.Name = "usuarioBuscar";
-            this.usuarioBuscar.Size = new System.Drawing.Size(222, 20);
+            this.usuarioBuscar.Size = new System.Drawing.Size(474, 20);
             this.usuarioBuscar.TabIndex = 0;
             // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(7, 93);
+            this.buscar.Location = new System.Drawing.Point(36, 133);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(90, 23);
             this.buscar.TabIndex = 8;
@@ -530,7 +542,7 @@
             // 
             // binicio
             // 
-            this.binicio.Location = new System.Drawing.Point(7, 5);
+            this.binicio.Location = new System.Drawing.Point(36, 45);
             this.binicio.Name = "binicio";
             this.binicio.Size = new System.Drawing.Size(90, 23);
             this.binicio.TabIndex = 7;
@@ -540,124 +552,143 @@
             // 
             // pperfil
             // 
+            this.pperfil.Controls.Add(this.label17);
+            this.pperfil.Controls.Add(this.label16);
+            this.pperfil.Controls.Add(this.label15);
+            this.pperfil.Controls.Add(this.label14);
             this.pperfil.Controls.Add(this.editar);
             this.pperfil.Controls.Add(this.username);
             this.pperfil.Controls.Add(this.apellido);
             this.pperfil.Controls.Add(this.nombre);
             this.pperfil.Controls.Add(this.mytweets);
-            this.pperfil.Location = new System.Drawing.Point(124, 214);
+            this.pperfil.Location = new System.Drawing.Point(160, 10);
             this.pperfil.Name = "pperfil";
-            this.pperfil.Size = new System.Drawing.Size(691, 261);
+            this.pperfil.Size = new System.Drawing.Size(639, 510);
             this.pperfil.TabIndex = 6;
             this.pperfil.Visible = false;
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(365, 39);
+            this.editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.editar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.editar.ForeColor = System.Drawing.Color.White;
+            this.editar.Location = new System.Drawing.Point(356, 112);
             this.editar.Name = "editar";
-            this.editar.Size = new System.Drawing.Size(75, 23);
+            this.editar.Size = new System.Drawing.Size(125, 46);
             this.editar.TabIndex = 4;
             this.editar.Text = "Editar perfil";
-            this.editar.UseVisualStyleBackColor = true;
+            this.editar.UseVisualStyleBackColor = false;
             // 
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(54, 56);
+            this.username.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Location = new System.Drawing.Point(372, 28);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(64, 13);
+            this.username.Size = new System.Drawing.Size(93, 18);
             this.username.TabIndex = 3;
             this.username.Text = "@username";
             // 
             // apellido
             // 
             this.apellido.AutoSize = true;
-            this.apellido.Location = new System.Drawing.Point(96, 29);
+            this.apellido.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellido.Location = new System.Drawing.Point(56, 68);
             this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(43, 13);
+            this.apellido.Size = new System.Drawing.Size(119, 33);
             this.apellido.TabIndex = 2;
             this.apellido.Text = "apellido";
             // 
             // nombre
             // 
             this.nombre.AutoSize = true;
-            this.nombre.Location = new System.Drawing.Point(48, 29);
+            this.nombre.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre.Location = new System.Drawing.Point(56, 33);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(42, 13);
+            this.nombre.Size = new System.Drawing.Size(114, 33);
             this.nombre.TabIndex = 1;
             this.nombre.Text = "nombre";
             // 
             // mytweets
             // 
             this.mytweets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mytweets.Location = new System.Drawing.Point(40, 90);
+            this.mytweets.Location = new System.Drawing.Point(32, 175);
             this.mytweets.Name = "mytweets";
             this.mytweets.ReadOnly = true;
-            this.mytweets.Size = new System.Drawing.Size(548, 150);
+            this.mytweets.Size = new System.Drawing.Size(445, 317);
             this.mytweets.TabIndex = 0;
             // 
             // pinicio
             // 
+            this.pinicio.Controls.Add(this.label13);
             this.pinicio.Controls.Add(this.NoMonitorear);
             this.pinicio.Controls.Add(this.monitorear);
             this.pinicio.Controls.Add(this.tweetsGrid);
             this.pinicio.Controls.Add(this.twittear);
             this.pinicio.Controls.Add(this.textTweet);
-            this.pinicio.Location = new System.Drawing.Point(124, 10);
+            this.pinicio.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pinicio.Location = new System.Drawing.Point(160, 10);
             this.pinicio.Name = "pinicio";
-            this.pinicio.Size = new System.Drawing.Size(488, 188);
+            this.pinicio.Size = new System.Drawing.Size(639, 510);
             this.pinicio.TabIndex = 5;
             // 
             // NoMonitorear
             // 
-            this.NoMonitorear.Location = new System.Drawing.Point(109, 33);
+            this.NoMonitorear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.NoMonitorear.ForeColor = System.Drawing.Color.White;
+            this.NoMonitorear.Location = new System.Drawing.Point(407, 62);
             this.NoMonitorear.Name = "NoMonitorear";
-            this.NoMonitorear.Size = new System.Drawing.Size(86, 23);
+            this.NoMonitorear.Size = new System.Drawing.Size(99, 23);
             this.NoMonitorear.TabIndex = 5;
             this.NoMonitorear.Text = "No Monitorear";
-            this.NoMonitorear.UseVisualStyleBackColor = true;
+            this.NoMonitorear.UseVisualStyleBackColor = false;
             this.NoMonitorear.Click += new System.EventHandler(this.NoMonitorear_Click);
             // 
             // monitorear
             // 
-            this.monitorear.Location = new System.Drawing.Point(32, 33);
+            this.monitorear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.monitorear.ForeColor = System.Drawing.Color.White;
+            this.monitorear.Location = new System.Drawing.Point(326, 62);
             this.monitorear.Name = "monitorear";
             this.monitorear.Size = new System.Drawing.Size(75, 23);
             this.monitorear.TabIndex = 4;
             this.monitorear.Text = "Monitorear";
-            this.monitorear.UseVisualStyleBackColor = true;
+            this.monitorear.UseVisualStyleBackColor = false;
             this.monitorear.Click += new System.EventHandler(this.monitorear_Click);
             // 
             // tweetsGrid
             // 
             this.tweetsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tweetsGrid.Location = new System.Drawing.Point(32, 66);
+            this.tweetsGrid.Location = new System.Drawing.Point(32, 105);
             this.tweetsGrid.Name = "tweetsGrid";
             this.tweetsGrid.ReadOnly = true;
-            this.tweetsGrid.Size = new System.Drawing.Size(437, 110);
+            this.tweetsGrid.Size = new System.Drawing.Size(580, 387);
             this.tweetsGrid.TabIndex = 3;
             // 
             // twittear
             // 
-            this.twittear.Location = new System.Drawing.Point(305, 8);
+            this.twittear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.twittear.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twittear.ForeColor = System.Drawing.Color.White;
+            this.twittear.Location = new System.Drawing.Point(512, 13);
             this.twittear.Name = "twittear";
-            this.twittear.Size = new System.Drawing.Size(75, 23);
+            this.twittear.Size = new System.Drawing.Size(100, 46);
             this.twittear.TabIndex = 0;
             this.twittear.Text = "Twittear";
-            this.twittear.UseVisualStyleBackColor = true;
+            this.twittear.UseVisualStyleBackColor = false;
             this.twittear.Click += new System.EventHandler(this.button7_Click);
             // 
             // textTweet
             // 
-            this.textTweet.Location = new System.Drawing.Point(32, 10);
+            this.textTweet.Location = new System.Drawing.Point(32, 38);
             this.textTweet.Name = "textTweet";
-            this.textTweet.Size = new System.Drawing.Size(267, 20);
+            this.textTweet.Size = new System.Drawing.Size(474, 20);
             this.textTweet.TabIndex = 1;
             this.textTweet.TextChanged += new System.EventHandler(this.textTweet_TextChanged);
             // 
             // bperfil
             // 
-            this.bperfil.Location = new System.Drawing.Point(7, 34);
+            this.bperfil.Location = new System.Drawing.Point(36, 74);
             this.bperfil.Name = "bperfil";
             this.bperfil.Size = new System.Drawing.Size(90, 23);
             this.bperfil.TabIndex = 4;
@@ -667,7 +698,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(7, 64);
+            this.button8.Location = new System.Drawing.Point(36, 104);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(90, 23);
             this.button8.TabIndex = 2;
@@ -677,19 +708,85 @@
             // 
             // Seguir
             // 
-            this.Seguir.Location = new System.Drawing.Point(391, 20);
+            this.Seguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.Seguir.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seguir.ForeColor = System.Drawing.Color.White;
+            this.Seguir.Location = new System.Drawing.Point(423, 457);
             this.Seguir.Name = "Seguir";
             this.Seguir.Size = new System.Drawing.Size(75, 23);
             this.Seguir.TabIndex = 3;
             this.Seguir.Text = "Seguir";
-            this.Seguir.UseVisualStyleBackColor = true;
+            this.Seguir.UseVisualStyleBackColor = false;
             this.Seguir.Click += new System.EventHandler(this.Seguir_Click);
+            // 
+            // DejarSeguir
+            // 
+            this.DejarSeguir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(161)))), ((int)(((byte)(242)))));
+            this.DejarSeguir.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DejarSeguir.ForeColor = System.Drawing.Color.White;
+            this.DejarSeguir.Location = new System.Drawing.Point(504, 457);
+            this.DejarSeguir.Name = "DejarSeguir";
+            this.DejarSeguir.Size = new System.Drawing.Size(108, 23);
+            this.DejarSeguir.TabIndex = 4;
+            this.DejarSeguir.Text = "Dejar de seguir";
+            this.DejarSeguir.UseVisualStyleBackColor = false;
+            this.DejarSeguir.Click += new System.EventHandler(this.DejarSeguir_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(28, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 22);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Inicio";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(393, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 16);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Siguiendo";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(393, 69);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 16);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Seguidores";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(371, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(16, 20);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "#";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(371, 46);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(16, 20);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "#";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 655);
+            this.ClientSize = new System.Drawing.Size(1298, 533);
             this.Controls.Add(this.start);
             this.Controls.Add(this.log);
             this.Controls.Add(this.home);
@@ -769,6 +866,12 @@
         private System.Windows.Forms.Button NoMonitorear;
         private System.Windows.Forms.Button monitorear;
         private System.Windows.Forms.Button Seguir;
+        private System.Windows.Forms.Button DejarSeguir;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
 

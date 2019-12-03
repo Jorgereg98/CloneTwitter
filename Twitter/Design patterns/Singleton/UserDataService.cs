@@ -227,6 +227,58 @@ namespace Twitter.DB
             return result;
         }
 
+        public bool DeleteFolllower(int idfollower, int idfollowing)
+        {
+            var result = false;
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "deletefollower",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@idfollower", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = idfollower
+                    };
+
+                    var par2 = new SqlParameter("@idfollowing", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = idfollowing
+                    };
+
+                    var par3 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+                    command.Parameters.Add(par3);
+
+                    command.ExecuteNonQuery();
+
+                    result = !Convert.ToBoolean(command.Parameters["@haserror"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
         public bool Exist(string mail, string username)
         {
             var result = false;
@@ -547,6 +599,104 @@ namespace Twitter.DB
                             idUser = (int)dataReader["idUser"]
                         };
                         result.Add(tweet);
+                    }
+                }
+            }
+            catch
+            {
+                result = null;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public List<int> GetFollowing(int idUser)
+        {
+            var result = new List<int>();
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "getfollowing",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@idfollower", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = idUser
+                    };
+
+                    var par2 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+
+                    
+var dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        result.Add((int)dataReader["idfollowing"]);
+                    }
+                }
+            }
+            catch
+            {
+                result = null;
+            }
+            finally
+            {
+                _client.Close();
+            }
+
+            return result;
+        }
+
+        public List<int> GetFollowers(int idUser)
+        {
+            var result = new List<int>();
+
+            try
+            {
+                if (_client.Open())
+                {
+                    var command = new SqlCommand
+                    {
+                        Connection = _client.Conecction,
+                        CommandText = "getfollowers",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var par1 = new SqlParameter("@iduser", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = idUser
+                    };
+
+                    var par2 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    command.Parameters.Add(par1);
+                    command.Parameters.Add(par2);
+
+
+                    var dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        result.Add((int)dataReader["idfollower"]);
                     }
                 }
             }

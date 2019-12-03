@@ -40,11 +40,23 @@ namespace Twitter.DB
             }
         }
 
+        public string DeleteFollower(int idfollower, int idfollowing)
+        {
+            try
+            {
+                return _userService.DeleteFolllower(idfollower,idfollowing) ? "Follower Removed Successfully" : "Error Removing Follower";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
         public string AddFollower(int idfollower, int idfollowing)
         {
             try
             {
-                return _userService.AddFollower(idfollower,idfollowing) ? "Follower Add Successfully" : "Error Adding Follower";
+                return _userService.AddFollower(idfollower, idfollowing) ? "Follower Add Successfully" : "Error Adding Follower";
             }
             catch (Exception e)
             {
@@ -69,6 +81,30 @@ namespace Twitter.DB
             try
             {
                 return _userService.GetUserTweets(idUser);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public List<int> GetFollowing(int idUser)
+        {
+            try
+            {
+                return _userService.GetFollowing(idUser);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public List<int> GetFollowers(int idUser)
+        {
+            try
+            {
+                return _userService.GetFollowers(idUser);
             }
             catch (Exception e)
             {

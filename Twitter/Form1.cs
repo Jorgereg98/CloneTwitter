@@ -21,6 +21,10 @@ namespace Twitter
         private static UserService _service;
         Password password = new Password();
         User logged_user;
+        List<int> following;
+        List<int> followers;
+        int siguiendo;
+        int seguidores;
         bool b = false;
 
         private readonly ISubject _sensores;
@@ -265,6 +269,10 @@ namespace Twitter
                 if (result == "Correcto")
                 {
                     logged_user = _service.GetUser(textBox5.Text, textBox5.Text, textBox6.Text);
+                    following = _service.GetFollowing(logged_user.id);
+                    followers = _service.GetFollowers(logged_user.id);
+                    siguiendo = following.Count;
+                    seguidores = followers.Count;
 
                     textBox5.Text = "";
                     textBox6.Text = "";
@@ -345,6 +353,9 @@ namespace Twitter
             username.Text = "@" + logged_user.username;
 
             mytweets.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
+
+            label17.Text = siguiendo.ToString();
+            label16.Text = seguidores.ToString();
         }
 
         private void binicio_Click(object sender, EventArgs e)
@@ -352,6 +363,8 @@ namespace Twitter
             pinicio.Visible = true;
             pperfil.Visible = false;
             pbuscar.Visible = false;
+
+            following = _service.GetFollowing(logged_user.id);
 
             //aparecen los del usuario faltan poner los de los seguidores
             //tweetsGrid.DataSource = new BindingSource { DataSource = _service.GetUserTweets(logged_user.id) };
@@ -431,9 +444,34 @@ namespace Twitter
             }
             if (result == "Error Adding Follower")
             {
-                MessageBox.Show("Ya seguias a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString()+ "anteriormente!");
+                MessageBox.Show("Ya seguias a "+ encontrados.Rows[rowindex].Cells[1].Value.ToString()+ " anteriormente!");
             }
 
+            following = _service.GetFollowing(logged_user.id);
+            siguiendo = following.Count;
+            followers = _service.GetFollowers(logged_user.id);
+            seguidores = followers.Count;
+
+        }
+
+        private void DejarSeguir_Click(object sender, EventArgs e)
+        {
+            int rowindex = encontrados.CurrentCell.RowIndex;
+            var result = _service.DeleteFollower(logged_user.id, (int)encontrados.Rows[rowindex].Cells[0].Value);
+
+            if (result == "Follower Removed Successfully")
+            {
+                MessageBox.Show("Dejaste de seguir a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+            }
+            if (result == "Error Removing Follower")
+            {
+                MessageBox.Show("Aun no sigues a " + encontrados.Rows[rowindex].Cells[1].Value.ToString() + "!");
+            }
+
+            following = _service.GetFollowing(logged_user.id);
+            siguiendo = following.Count;
+            followers = _service.GetFollowers(logged_user.id);
+            seguidores = followers.Count;
         }
     }
 }
