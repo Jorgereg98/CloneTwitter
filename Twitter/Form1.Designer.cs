@@ -60,6 +60,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button6 = new System.Windows.Forms.Button();
             this.start = new System.Windows.Forms.Panel();
+            this.info = new System.Windows.Forms.Button();
+            this.comboLugares = new System.Windows.Forms.ComboBox();
             this.peditar = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -98,6 +100,7 @@
             this.encontrados = new System.Windows.Forms.DataGridView();
             this.buscarusuario = new System.Windows.Forms.Button();
             this.usuarioBuscar = new System.Windows.Forms.TextBox();
+            this.trends = new System.Windows.Forms.Label();
             this.home.SuspendLayout();
             this.register.SuspendLayout();
             this.log.SuspendLayout();
@@ -491,14 +494,34 @@
             this.start.Controls.Add(this.binicio);
             this.start.Controls.Add(this.bperfil);
             this.start.Controls.Add(this.button8);
+            this.start.Controls.Add(this.pperfil);
             this.start.Controls.Add(this.pinicio);
             this.start.Controls.Add(this.pbuscar);
-            this.start.Controls.Add(this.pperfil);
             this.start.Location = new System.Drawing.Point(0, 0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(1300, 535);
             this.start.TabIndex = 5;
             this.start.Visible = false;
+            // 
+            // info
+            // 
+            this.info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.info.ForeColor = System.Drawing.Color.White;
+            this.info.Location = new System.Drawing.Point(974, 48);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(75, 23);
+            this.info.TabIndex = 12;
+            this.info.Text = "Trends";
+            this.info.UseVisualStyleBackColor = false;
+            this.info.Click += new System.EventHandler(this.info_Click);
+            // 
+            // comboLugares
+            // 
+            this.comboLugares.FormattingEnabled = true;
+            this.comboLugares.Location = new System.Drawing.Point(645, 17);
+            this.comboLugares.Name = "comboLugares";
+            this.comboLugares.Size = new System.Drawing.Size(404, 22);
+            this.comboLugares.TabIndex = 11;
             // 
             // peditar
             // 
@@ -512,7 +535,7 @@
             this.peditar.Controls.Add(this.label24);
             this.peditar.Controls.Add(this.label26);
             this.peditar.Controls.Add(this.label27);
-            this.peditar.Location = new System.Drawing.Point(816, 13);
+            this.peditar.Location = new System.Drawing.Point(826, 158);
             this.peditar.Name = "peditar";
             this.peditar.Size = new System.Drawing.Size(404, 362);
             this.peditar.TabIndex = 10;
@@ -639,11 +662,12 @@
             this.buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buscar.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscar.Location = new System.Drawing.Point(36, 117);
+            this.buscar.Location = new System.Drawing.Point(28, 124);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(90, 30);
             this.buscar.TabIndex = 8;
             this.buscar.Text = "Buscar";
+            this.buscar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
@@ -652,16 +676,17 @@
             this.binicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.binicio.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.binicio.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.binicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.binicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.binicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.binicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.binicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.binicio.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.binicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.binicio.Location = new System.Drawing.Point(36, 45);
+            this.binicio.Location = new System.Drawing.Point(28, 50);
             this.binicio.Name = "binicio";
             this.binicio.Size = new System.Drawing.Size(90, 30);
             this.binicio.TabIndex = 7;
             this.binicio.Text = "Inicio";
+            this.binicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.binicio.UseVisualStyleBackColor = true;
             this.binicio.Click += new System.EventHandler(this.binicio_Click);
             // 
@@ -675,11 +700,12 @@
             this.bperfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bperfil.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bperfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bperfil.Location = new System.Drawing.Point(36, 81);
+            this.bperfil.Location = new System.Drawing.Point(28, 86);
             this.bperfil.Name = "bperfil";
             this.bperfil.Size = new System.Drawing.Size(90, 30);
             this.bperfil.TabIndex = 4;
             this.bperfil.Text = "Perfil";
+            this.bperfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bperfil.UseVisualStyleBackColor = true;
             this.bperfil.Click += new System.EventHandler(this.bperfil_Click);
             // 
@@ -693,11 +719,12 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(12, 153);
+            this.button8.Location = new System.Drawing.Point(28, 460);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(142, 30);
             this.button8.TabIndex = 2;
             this.button8.Text = "Cerrar sesión";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -812,8 +839,11 @@
             // 
             // pinicio
             // 
+            this.pinicio.Controls.Add(this.trends);
             this.pinicio.Controls.Add(this.label13);
+            this.pinicio.Controls.Add(this.info);
             this.pinicio.Controls.Add(this.NoMonitorear);
+            this.pinicio.Controls.Add(this.comboLugares);
             this.pinicio.Controls.Add(this.monitorear);
             this.pinicio.Controls.Add(this.tweetsGrid);
             this.pinicio.Controls.Add(this.twittear);
@@ -821,7 +851,7 @@
             this.pinicio.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pinicio.Location = new System.Drawing.Point(160, 10);
             this.pinicio.Name = "pinicio";
-            this.pinicio.Size = new System.Drawing.Size(639, 510);
+            this.pinicio.Size = new System.Drawing.Size(1070, 510);
             this.pinicio.TabIndex = 5;
             // 
             // label13
@@ -957,6 +987,17 @@
             this.usuarioBuscar.Size = new System.Drawing.Size(474, 20);
             this.usuarioBuscar.TabIndex = 0;
             // 
+            // trends
+            // 
+            this.trends.AutoSize = true;
+            this.trends.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trends.Location = new System.Drawing.Point(648, 86);
+            this.trends.Name = "trends";
+            this.trends.Size = new System.Drawing.Size(165, 32);
+            this.trends.TabIndex = 13;
+            this.trends.Text = "Tendencias";
+            this.trends.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1060,6 +1101,9 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox comboLugares;
+        private System.Windows.Forms.Button info;
+        private System.Windows.Forms.Label trends;
     }
 }
 

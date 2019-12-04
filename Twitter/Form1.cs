@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Twitter.Builder;
 using Twitter.DB;
 using Twitter.Design_patterns.Observer;
+using Twitter.Design_patterns.Proxy;
 using Twitter.Models;
 using Twitter.Strategy;
 
@@ -27,6 +28,7 @@ namespace Twitter
         int seguidores;
         bool b = false;
         bool c = false;
+        List<CountryObject> lugares = new List<CountryObject>();
 
         private readonly ISubject _sensores;
         private IObserver _display;
@@ -41,7 +43,23 @@ namespace Twitter
             _display = new ObserverAlerta(_sensores);
             monitorear.Enabled = false;
 
+            IProxyCountry proxy = new ProxyCountry();
+            var proxyCountry = proxy.country();
+            List<string> countries = new List<string>();
 
+            foreach(var c in proxyCountry)
+            {
+                if (c.name != "")
+                {
+                    lugares.Add(c);
+                    countries.Add(c.name);
+                }
+                
+            }
+
+            comboLugares.DataSource = new BindingSource { DataSource = countries };
+            
+            
 
         }
 
@@ -286,7 +304,9 @@ namespace Twitter
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            binicio.ForeColor = Color.DodgerBlue;
+            bperfil.ForeColor = Color.Black;
+            buscar.ForeColor = Color.Black;
 
             var result = _service.Exist(textBox5.Text, textBox5.Text);
 
@@ -405,6 +425,10 @@ namespace Twitter
             pbuscar.Visible = false;
             peditar.Visible = false;
 
+            binicio.ForeColor = Color.Black;
+            bperfil.ForeColor = Color.DodgerBlue;
+            buscar.ForeColor = Color.Black;
+
             nombre.Text = logged_user.name;
             apellido.Text = logged_user.lastName;
             username.Text = "@" + logged_user.username;
@@ -425,6 +449,10 @@ namespace Twitter
             pbuscar.Visible = false;
             peditar.Visible = false;
 
+            binicio.ForeColor = Color.DodgerBlue;
+            bperfil.ForeColor = Color.Black;
+            buscar.ForeColor = Color.Black;
+
             CargarTweets();
 
 
@@ -438,6 +466,10 @@ namespace Twitter
             pperfil.Visible = false;
             pbuscar.Visible = true;
             peditar.Visible = false;
+
+            binicio.ForeColor = Color.Black;
+            bperfil.ForeColor = Color.Black;
+            buscar.ForeColor = Color.DodgerBlue;
         }
 
         private void buscarusuario_Click(object sender, EventArgs e)
@@ -461,7 +493,11 @@ namespace Twitter
         {
             ((MedidorCaracteres)_sensores).NumeroCaracteres = textTweet.Text.Length;
 
-            if (ObserverAlerta.color == "rojo")
+            if(textTweet.Text.Length <= 280)
+            {
+                twittear.Enabled = true;
+            }
+            else if (ObserverAlerta.color == "rojo")
             {
                 twittear.Enabled = false;
             }
@@ -569,11 +605,12 @@ namespace Twitter
                 user.username = logged_user.username;
                 user.pasword = textBox9.Text;
 
-                var result = _service.UpdateUser(user.name, user.lastName, user.pasword);
+                var result = _service.UpdateUser(user.name,user.lastName,user.pasword,user.mail, user.username);
 
                 if (result == "User Updated Successfully")
                 {
                     MessageBox.Show("Datos actualizados correctamente!");
+                    logged_user = _service.GetUser(logged_user.mail, logged_user.username, textBox9.Text);
                 }
                 if (result == "Error Updating User")
                 {
@@ -585,6 +622,14 @@ namespace Twitter
             {
                 MessageBox.Show("Alguno de tus campos no es válido.");
             }
+
+            peditar.Visible = false;
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox9.Text = "";
+            nombre.Text = logged_user.name;
+            apellido.Text = logged_user.lastName;
+            
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -628,6 +673,13 @@ namespace Twitter
         private void label20_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void info_Click(object sender, EventArgs e)
+        {
+            CountryObject c = lugares[comboLugares.SelectedIndex];
+            trends.Visible = true;
+            trends.Text = "Tendencias de " + c.name;
         }
     }
 }

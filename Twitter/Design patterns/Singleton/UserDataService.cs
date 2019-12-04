@@ -109,7 +109,7 @@ namespace Twitter.DB
         }
 
 
-        public bool UpdateUser(string nombre, string apellidos, string contrasena)
+        public bool UpdateUser(string nombre, string apellidos, string contrasena, string username, string email)
         {
             var result = false;
             try
@@ -141,7 +141,19 @@ namespace Twitter.DB
                         Value = contrasena
                     };
 
-                    var par4 = new SqlParameter("@haserror", SqlDbType.Bit)
+                    var par4 =  new SqlParameter("@username", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = username
+                    };
+
+                    var par5 = new SqlParameter("@email", SqlDbType.NVarChar)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = email
+                    };
+
+                    var par6 = new SqlParameter("@haserror", SqlDbType.Bit)
                     {
                         Direction = ParameterDirection.Output
                     };
@@ -150,6 +162,8 @@ namespace Twitter.DB
                     command.Parameters.Add(par2);
                     command.Parameters.Add(par3);
                     command.Parameters.Add(par4);
+                    command.Parameters.Add(par5);
+                    command.Parameters.Add(par6);
 
                     command.ExecuteNonQuery();
 

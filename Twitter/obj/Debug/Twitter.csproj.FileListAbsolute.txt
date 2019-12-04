@@ -8,3 +8,6 @@ C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csproj.GenerateResource.
 C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.exe
 C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.pdb
+C:\Users\DELL\Desktop\Twitter\Twitter\bin\Debug\RestSharp.dll
+C:\Users\DELL\Desktop\Twitter\Twitter\bin\Debug\RestSharp.xml
+C:\Users\DELL\Desktop\Twitter\Twitter\obj\Debug\Twitter.csproj.CopyComplete
