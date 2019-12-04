@@ -58,11 +58,7 @@
     <Compile Include="Design patterns\Observer\ObserverAlerta.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Design patterns\Proxy\IProxyCountry.cs" />
-    <Compile Include="Design patterns\Proxy\IProxyWeather.cs" />
     <Compile Include="Design patterns\Proxy\ProxyCountry.cs" />
-    <Compile Include="Design patterns\Proxy\ProxyWeather.cs" />
-    <Compile Include="Models\Forecast.cs" />
-    <Compile Include="Models\Weather.cs" />
     <Compile Include="Design patterns\Singleton\SqlClient.cs" />
     <Compile Include="Design patterns\Singleton\UserDataService.cs" />
     <Compile Include="Design patterns\Singleton\UserService.cs" />
