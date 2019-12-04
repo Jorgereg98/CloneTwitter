@@ -54,17 +54,19 @@ create procedure updateuser
 	@nombre nvarchar(50),
 	@apellidos nvarchar(50),
 	@contrasena nvarchar(50),
+	@username nvarchar(50),
+	@email nvarchar(50),
 	@haserror bit out
 )
 as
 set @haserror = 1
 begin try
-if exists(select top 1 1 from users where nombre = @nombre)
+if exists(select top 1 1 from users where mail = @email and username = @username)
 begin
 	set @haserror = 0
 	update users
 	set nombre = @nombre, apellidos = @apellidos, contrasena = @contrasena
-	where nombre = @nombre
+	where  mail = @email and username = @username
 end
 end try
 begin catch
@@ -322,3 +324,4 @@ go
 select * from users
 select * from tweet
 select * from followers
+select * from users
